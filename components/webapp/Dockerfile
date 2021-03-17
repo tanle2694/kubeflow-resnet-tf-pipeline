@@ -12,11 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM base-trtis-client
+FROM nvcr.io/nvidia/tritonserver:20.12-py3-sdk
 
-RUN pip3 install flask
+RUN pip install flask
 ADD src /workspace/web_server
 WORKDIR /workspace/web_server
 EXPOSE 8080
 
-#ENTRYPOINT ["python3", "flask_server.py"]
+ENTRYPOINT ["python3", "flask_server.py"]

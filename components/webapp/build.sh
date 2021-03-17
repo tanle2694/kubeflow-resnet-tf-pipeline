@@ -15,12 +15,6 @@
 
 IMAGE=webapp-image
 
-# Build base TRTIS client image
-git clone https://github.com/NVIDIA/tensorrt-inference-server.git
-base=tensorrt-inference-server
-docker build -t base-trtis-client -f $base/Dockerfile.sdk $base
-#rm -rf $basei
-
 # Build & push webapp image
 docker build -t $IMAGE .
 #docker push $IMAGE
