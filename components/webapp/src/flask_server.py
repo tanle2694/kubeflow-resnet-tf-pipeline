@@ -24,7 +24,7 @@ from trtis_client import get_prediction, random_image
 app = Flask(__name__)
 
 name_arg = os.getenv('MODEL_SERVE_NAME', 'inception_graphdef')
-addr_arg = os.getenv('TRTSERVER_HOST', '10.0.64.132')
+addr_arg = os.getenv('TRTSERVER_HOST', '10.110.20.210')
 port_arg = os.getenv('TRTSERVER_PORT', '8001')
 model_version = os.getenv('MODEL_VERSION', '1')
 
@@ -38,7 +38,7 @@ def main():
   connection = {"text": "", "success": False}
   try:
     # get a random test MNIST image
-    file_name, truth, serving_path = random_image('/home/tan.le2/Downloads/images/CIFAR-10-images/CIFAR-10-images/test')
+    file_name, truth, serving_path = random_image('/workspace/web_server/static/images')
     # get prediction from TensorFlow server
     pred, scores = get_prediction(file_name,
                                   server_host=addr_arg,
